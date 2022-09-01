@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>This is a html page for testing purpose only</title>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+ 
+<body>
+文档内容......
+</body>
+<script>
+import axios from "axios";
+// Make a request for a user with a given ID
+axios.get('http://localhost:5173/api/agent/0')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
+
+// Optionally the request above could also be done as
+axios.get('http://localhost:5173/api/agent/0', {
+    params: {
+      ID: 12345
+    }
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });  
+
+// Want to use async/await? Add the `async` keyword to your outer function/method.
+async function getUser() {
+  try {
+    const response = await axios.get('http://localhost:5173/api/agent/0');
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+}
+</script>
+</html>
+
+

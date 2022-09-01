@@ -1,0 +1,27 @@
+
+ver 0.2.0
+author zhangwei on 2022.07.18
+
+- Some restful interface for demonstration purpose can run successfully.
+Including the following test URLs(tested OK):
+
+http://localhost:8080/api/greeting
+http://localhost:8080/api/logstream/search?date=2028-09-09
+http://localhost:8080/api/agent/
+http://localhost:8080/api/agent/0/
+
+- Test IntelliJ maven package and can use "java -jar <jarfile>" to run the jar successfully.
+
+ver 0.1.0
+modified by zhangwei on 2022.07.17
+
+- cloned from: git clone https://github.com/spring-guides/gs-rest-service.git
+- Build successfully with IntelliJ
+
+Link:
+Building a RESTful Web Service, https://spring.io/guides/gs/rest-service/#initial
+
+Test with the following URL:
+http://localhost:8080/greeting
+http://localhost:8080/greeting?name=User
+
