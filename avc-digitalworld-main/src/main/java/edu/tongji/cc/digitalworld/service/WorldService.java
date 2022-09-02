@@ -10,15 +10,16 @@ public class WorldService {
     private MapService _map;
     private AgentService _agents;
 
-    static private final int  _AgentNumber = 5;
+    static private final int  _AgentNumber = 1;
     static private final int  _ObstacleNumber = 10;
 
     public WorldService()
     {
         _agents = new AgentService();
         _map = new MapService(_agents);
-        _agents.randomize(_AgentNumber);
-        _map.randomize(_ObstacleNumber);
+        _map.randomize(_ObstacleNumber);//初始化地图，随机生成障碍物
+        _agents.randomize(_AgentNumber);//初始化Agent,生成taxi的初始位置和目标位置
+        MapService.drawMap();//画出地图，包括障碍物，起点和终点
     }
 
     public AgentService getAgentService()
@@ -38,5 +39,7 @@ public class WorldService {
     public static int getObstacleNumber(){
         return _ObstacleNumber;
     }
+
+
 
 }

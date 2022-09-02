@@ -4,9 +4,7 @@ import edu.tongji.cc.digitalworld.common.Location;
 import edu.tongji.cc.digitalworld.entity.Map;
 import edu.tongji.cc.digitalworld.entity.Obstacle;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,7 +21,12 @@ public class MapService {
     public static final int MAP_WIDTH = 50;
     public static final int MAP_HEIGHT = 50;
 
-    private short[][] cell = new short[MAP_WIDTH][MAP_HEIGHT];
+    private static short[][] cell = new short[MAP_WIDTH][MAP_HEIGHT];
+    //cell 数值说明
+    //0 空
+    //1 障碍物
+    //2 起点
+    //3 终点
     AgentService _agents;
     List<Obstacle> _obslist = new ArrayList<Obstacle>();
 
@@ -55,22 +58,8 @@ public class MapService {
 
         //栅格障碍物置1
         setObsGride();
-        /* 调试——将栅格打印出来看看效果
-        System.out.println(Arrays.deepToString(cell));
-        //保存为map.txt
-        try {
-           OutputStream os = new FileOutputStream("map.txt");
-            for (int x = 0; x < MAP_WIDTH; x++) {
-                os.write('\n');
-                for (int y = 0; y < MAP_HEIGHT; y++){
-                    os.write(cell[x][y]); // writes the bytes
-                }
-            }
-            os.close();
-        } catch (IOException e) {
-            System.out.print("Exception");
-        }
-        */
+
+
     }
 
     //生成障碍物object
@@ -130,5 +119,41 @@ public class MapService {
             }
         }
 
+    }
+
+    public static boolean judgeCellEmpty(int x, int y) {
+        return (cell[x][y] == 0);
+    }
+
+    public static void setCellValue(int x, int y, short val) {
+        cell[x][y] = val;
+    }
+
+    public static void drawMap() {
+        // 调试——将栅格打印出来看看效果
+        System.out.println(Arrays.deepToString(cell));
+        //保存为map.txt
+        try {
+            File f = new File("map.txt");
+            FileOutputStream fop = new FileOutputStream(f);
+            // 构建FileOutputStream对象,文件不存在会自动新建
+
+            OutputStreamWriter os = new OutputStreamWriter(fop, "UTF-8");
+
+            for (int x = 0; x < MAP_WIDTH; x++) {
+                os.append("\r\n");
+                for (int y = 0; y < MAP_HEIGHT; y++) {
+                    if (cell[x][y] != 0)
+                        os.append((char) (cell[x][y] + 48));
+                    else{
+                        os.append(' ');
+                    }
+                }
+            }
+            os.close();
+            fop.close();
+        } catch (IOException e) {
+            System.out.print("Exception");
+        }
     }
 }
