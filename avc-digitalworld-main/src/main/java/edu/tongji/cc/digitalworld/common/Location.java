@@ -9,7 +9,7 @@ package edu.tongji.cc.digitalworld.common;
  */
 public class Location {
 
-    private int[] _value = new int[3];
+    protected int[] _value = new int[3];
 
     public Location()
     {
@@ -38,6 +38,17 @@ public class Location {
     {
         _value[0] = x;
     }
+
+    public void setY(int y)
+    {
+        _value[1] = y;
+    }
+
+    public void setZ(int z)
+    {
+        _value[2] = z;
+    }
+
 
     public int getY()
     {

@@ -1,14 +1,5 @@
 package edu.tongji.cc.digitalworld.service;
 
-import edu.tongji.cc.digitalworld.common.Location;
-import edu.tongji.cc.digitalworld.entity.Agent;
-import edu.tongji.cc.digitalworld.entity.Map;
-import edu.tongji.cc.digitalworld.entity.RoboTaxi;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 /**
  * World service, which is essentially the simulation engine.
  * @author ZhangWei(Dept. of Control, TongJi University)
@@ -20,12 +11,14 @@ public class WorldService {
     private AgentService _agents;
 
     static private final int  _AgentNumber = 5;
+    static private final int  _ObstacleNumber = 10;
 
     public WorldService()
     {
         _agents = new AgentService();
         _map = new MapService(_agents);
         _agents.randomize(_AgentNumber);
+        _map.randomize(_ObstacleNumber);
     }
 
     public AgentService getAgentService()
@@ -38,8 +31,12 @@ public class WorldService {
         return _map;
     }
 
-    public static int GetagentNumber(){
+    public static int getAgentNumber(){
         return _AgentNumber;
+    }
+
+    public static int getObstacleNumber(){
+        return _ObstacleNumber;
     }
 
 }

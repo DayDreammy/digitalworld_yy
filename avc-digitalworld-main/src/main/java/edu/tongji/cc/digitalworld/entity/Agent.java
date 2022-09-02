@@ -1,6 +1,5 @@
 package edu.tongji.cc.digitalworld.entity;
 
-import edu.tongji.cc.digitalworld.common.Destination;
 import edu.tongji.cc.digitalworld.common.Location;
 
 /**
