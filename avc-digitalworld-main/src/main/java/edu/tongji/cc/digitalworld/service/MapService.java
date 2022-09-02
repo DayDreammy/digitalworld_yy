@@ -1,5 +1,7 @@
 package edu.tongji.cc.digitalworld.service;
 
+import edu.tongji.cc.digitalworld.Astar.AStar;
+import edu.tongji.cc.digitalworld.Astar.Node;
 import edu.tongji.cc.digitalworld.common.Location;
 import edu.tongji.cc.digitalworld.entity.Map;
 import edu.tongji.cc.digitalworld.entity.Obstacle;
@@ -140,15 +142,20 @@ public class MapService {
 
             OutputStreamWriter os = new OutputStreamWriter(fop, "UTF-8");
 
-            for (int x = 0; x < MAP_WIDTH; x++) {
-                os.append("\r\n");
-                for (int y = 0; y < MAP_HEIGHT; y++) {
-                    if (cell[x][y] != 0)
-                        os.append((char) (cell[x][y] + 48));
+            for (int x = 0; x < MAP_HEIGHT; x++) {
+                for (int y = 0; y < MAP_WIDTH; y++) {
+                    if (cell[x][y] != 0){
+                        os.append((char) (cell[x][y] + '0'));
+                        System.out.print((char) (cell[x][y] + '0'));
+                    }
+
                     else{
                         os.append(' ');
+                        System.out.print(' ');
                     }
                 }
+                System.out.print("\r\n");
+                os.append("\r\n");//换行
             }
             os.close();
             fop.close();
@@ -156,4 +163,7 @@ public class MapService {
             System.out.print("Exception");
         }
     }
+
+
+
 }

@@ -27,8 +27,9 @@ public class AgentService {
         {
             Agent agent = new RoboTaxi();
             agent.setId(i);
-            agent.setLocation();
-            agent.setDestination();
+            agent.setLocation(2);//设置起点
+            agent.setLocation(3);//设置终点
+            agent.Astar();//路径规划
             _agentlist.add(agent);
         }
     }

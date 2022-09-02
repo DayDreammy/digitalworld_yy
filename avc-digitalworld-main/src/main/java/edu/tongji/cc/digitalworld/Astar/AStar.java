@@ -1,5 +1,7 @@
 package edu.tongji.cc.digitalworld.Astar;
 
+import edu.tongji.cc.digitalworld.common.Location;
+
 import java.util.*;
 
 /**
@@ -49,10 +51,10 @@ public class AStar {
         }
     }
 
-    public void setBlocks(int[][] blocksArray) {
-        for (int i = 0; i < blocksArray.length; i++) {
-            int row = blocksArray[i][0];
-            int col = blocksArray[i][1];
+    public void setBlocks(List<Location> blocksArray) {
+        for (int i = 0; i < blocksArray.size(); i++) {
+            int row = blocksArray.get(i).getX();
+            int col = blocksArray.get(i).getY();
             setBlock(row, col);
         }
     }
