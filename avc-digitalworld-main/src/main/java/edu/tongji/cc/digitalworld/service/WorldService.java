@@ -10,7 +10,7 @@ public class WorldService {
     private MapService _map;
     private AgentService _agents;
 
-    static private final int  _AgentNumber = 1;
+    static private final int  _AgentNumber = 3;
     static private final int  _ObstacleNumber = 10;
 
     public WorldService()

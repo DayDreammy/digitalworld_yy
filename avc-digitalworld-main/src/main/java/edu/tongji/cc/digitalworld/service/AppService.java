@@ -12,17 +12,17 @@ public class AppService {
 
     private WorldService world = new WorldService();
     private LogService logservice = new LogService();
-    private WorldService worldservice = new WorldService();
+//    private WorldService worldservice = new WorldService();
 
     public AppService()
     {
 
     }
 
-    public WorldService world()
-    {
-        return worldservice;
-    }
+//    public WorldService world()
+//    {
+//        return worldservice;
+//    }
 
     public AgentService agents()
     {

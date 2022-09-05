@@ -26,6 +26,8 @@ public class Agent {
     private static Location _location = new Location();
     private static Location _destination = new Location();// taxi's target
 
+    private static List<Node> _path= new ArrayList<Node>();//taxi's path
+
     public Agent() {
 
     }
@@ -62,7 +64,7 @@ public class Agent {
         Location dst = new Location();
         while (true) {
             dst = new Location(rnd.nextInt(MAP_WIDTH), rnd.nextInt(MAP_HEIGHT));
-            if (MapService.judgeCellEmpty(dst.getX(), dst.getY())) //cell位置要为空，才能落座
+            if (MapService.judgeCellEmpty(dst.getX(), dst.getY())) //cell位置要为空，才能设为起点/终点
                 break;
         }
         this._destination.assignfrom(dst);
@@ -86,8 +88,9 @@ public class Agent {
             }
         }
         aStar.setBlocks(blocksArray);
-        List<Node> path = aStar.findPath();
-        for (Node node : path) {
+//        List<Node> path = aStar.findPath();
+        _path=aStar.findPath();
+        for (Node node : _path) {
             System.out.println(node);
             setCellValue(node.getRow(),node.getCol(),(short)4);
             setCellValue(initialNode.getRow(),initialNode.getCol(),(short)2);
