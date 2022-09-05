@@ -30,15 +30,18 @@ public class ScheduledTasks {
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 100)
     public void reportCurrentTime() throws IOException {
 
 
-        log.info("time : {}", dateFormat.format(new Date()));
+//        log.info("time : {}", dateFormat.format(new Date()));
         for (int i = 0; i < WorldService.getAgentNumber(); i++) {
             log.info(avc.agents().get(i).toString());
         }
 
+        for (int i = 0; i < WorldService.getAgentNumber(); i++) {
+            avc.agents().get(i).invovle();
+        }
 
 
     }

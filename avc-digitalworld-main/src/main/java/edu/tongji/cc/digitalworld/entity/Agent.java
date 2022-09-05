@@ -23,10 +23,15 @@ import static edu.tongji.cc.digitalworld.service.MapService.*;
 public class Agent {
 
     private int _id;
-    private static Location _location = new Location();
-    private static Location _destination = new Location();// taxi's target
+    private int _direction;//车的朝向
+//    - 0  北 （朝上）
+//    - 1  南 （朝下）
+//    - 2  西 （朝左）
+//    - 3  东 （朝右）
+    private  Location _location = new Location();
+    private  Location _destination = new Location();// taxi's target
 
-    private static List<Node> _path= new ArrayList<Node>();//taxi's path
+    private  List<Node> _path= new ArrayList<Node>();//taxi's path
 
     public Agent() {
 
@@ -42,36 +47,185 @@ public class Agent {
 
     public void setLocation(int type) {
         Random rnd = new Random();
-        Location loc = new Location();
+        Location loc;
         while (true) {
             loc = new Location(rnd.nextInt(MAP_WIDTH), rnd.nextInt(MAP_HEIGHT));
             if (MapService.judgeCellEmpty(loc.getX(), loc.getY())) //cell位置要为空，才能落座
                 break;
         }
         if( type ==2){
-            this._location.assignfrom(loc);//给agent赋位置
+            _location.assignfrom(loc);//给agent赋位置，起点
             setCellValue(loc.getX(),loc.getY(), (short) 2);//起点
         }
         else if(type == 3){
-            this._destination.assignfrom(loc);
+            _destination.assignfrom(loc);//终点
             //MapService.setCellValue(loc.getX(),loc.getY(), (short) 3);//终点
         }
 
     }
 
-    public void setDestination() {
-        Random rnd = new Random();
-        Location dst = new Location();
-        while (true) {
-            dst = new Location(rnd.nextInt(MAP_WIDTH), rnd.nextInt(MAP_HEIGHT));
-            if (MapService.judgeCellEmpty(dst.getX(), dst.getY())) //cell位置要为空，才能设为起点/终点
-                break;
-        }
-        this._destination.assignfrom(dst);
-        setCellValue(dst.getX(),dst.getY(), (short) 3);//终点
+    public int getDirection(){
+        return _direction;
     }
 
-    public static void Astar() {
+    public void turnLeft(){
+        if(_direction == 0 ){       // - 0  北 （朝上）
+            _direction=2;
+        }else if(_direction == 1 ){ // - 1  南 （朝下）
+            _direction=3;
+        }else if(_direction == 2 ){ // - 2  西 （朝左）
+            _direction=1;
+        }else if(_direction == 3 ){ // - 3  东 （朝右）
+            _direction=0;
+        }
+    }
+
+    public void turnRight(){
+        if(_direction == 0 ){       // - 0  北 （朝上）
+            _direction=3;
+        }else if(_direction == 1 ){ // - 1  南 （朝下）
+            _direction=2;
+        }else if(_direction == 2 ){ // - 2  西 （朝左）
+            _direction=0;
+        }else if(_direction == 3 ){ // - 3  东 （朝右）
+            _direction=1;
+        }
+    }
+
+    //向前演化一步 观察+动作
+    public void invovle(){
+        //删去path的第一个节点
+        if(_path.size() >1 ){//还没到终点
+            _path.remove(0);
+        }else{//已经到终点
+            System.out.println("taxi [id : "+getId()+" ] 已到达目的地" );
+        }
+
+
+        //判断path和自己位置的关系
+        int loc_x = _location.getX();
+        int loc_y = _location.getY();
+
+        int next_x=_path.get(0).getRow();
+        int next_y=_path.get(0).getCol();
+
+        int next_direction=0; //下一个点的方向
+
+        //观察下一步该怎么走
+        if(next_y == loc_y ){//上下移动
+            if(next_x > loc_x){//next path的位置，在南面
+                //    - 0  北 （朝上）
+                //    - 1  南 （朝下）
+                //    - 2  西 （朝左）
+                //    - 3  东 （朝右）
+                switch (_direction){
+                    case 0:
+                        next_direction=0;//向后转 前进
+                        break;
+                    case 1:
+                        next_direction=1; //前进
+                        break;
+                    case 2:
+                        next_direction=2; // 向左转 前进
+                        break;
+                    case 3:
+                        next_direction=3; //向右转 前进
+                        break;
+                }
+            }else if(next_x < loc_x){//next path的位置，在南面
+                //    - 0  北 （朝上）
+                //    - 1  南 （朝下）
+                //    - 2  西 （朝左）
+                //    - 3  东 （朝右）
+                switch (_direction){
+                    case 0:
+                        next_direction=1; //前进
+                        break;
+                    case 1:
+                        next_direction=0;//向后转 前进
+                        break;
+                    case 2:
+                        next_direction=3; //向右转 前进
+                        break;
+                    case 3:
+                        next_direction=2; // 向左转 前进
+                        break;
+                }
+            }
+        }else if(next_x == loc_x){//左右移动
+            //    - 0  北 （朝上）
+            //    - 1  南 （朝下）
+            //    - 2  西 （朝左）
+            //    - 3  东 （朝右）
+            if(next_y > loc_y){
+                switch (_direction){
+                    case 0:
+                        next_direction=3; //向右转 前进
+                        break;
+                    case 1:
+                        next_direction=2; // 向左转 前进
+
+                        break;
+                    case 2:
+                        next_direction=0;//向后转 前进
+                        break;
+                    case 3:
+                        next_direction=1; //前进
+                        break;
+                }
+            }else if(next_y < loc_y){
+                switch (_direction){
+                    case 0:
+                        next_direction=2; // 向左转 前进
+                        break;
+                    case 1:
+                        next_direction=3; //向右转 前进
+                        break;
+                    case 2:
+                        next_direction=1; //前进
+                        break;
+                    case 3:
+                        next_direction=0;//向后转 前进
+                        break;
+                }
+            }
+        }
+
+
+        //根据观察结果做出动作
+        switch (next_direction){
+            case 0:
+                turnLeft();
+                turnLeft();
+                Forward();
+                break;
+            case 1:
+                Forward();
+                break;
+            case 2:
+                turnLeft();
+                Forward();
+                break;
+            case 3:
+                turnRight();
+                Forward();
+                break;
+        }
+    }
+
+    public void Forward(){//地图坐标原点在左上角
+        if(_direction == 0 ){       // - 0  北 （朝上）
+            _location.setX(getX()-1);
+        }else if(_direction == 1 ){ // - 1  南 （朝下）
+            _location.setX(getX()+1);
+        }else if(_direction == 2 ){ // - 2  西 （朝左）
+            _location.setY(getY()-1);
+        }else if(_direction == 3 ){ // - 3  东 （朝右）
+            _location.setY(getY()+1);
+        }
+    }
+
+    public  void Astar() {
         Node initialNode = new Node(getX(), getY());
         Node finalNode = new Node(getX_dst(), getY_dst());
         int rows = MAP_HEIGHT;
@@ -110,19 +264,19 @@ public class Agent {
                 getId(), getX(), getY(),getX_dst(),getY_dst());
     }
 
-    public static int getX() {
+    public int getX() {
         return _location.getX();
     }
 
-    public static int getY() {
+    public int getY() {
         return _location.getY();
     }
 
-    public static int getX_dst() {
+    public  int getX_dst() {
         return _destination.getX();
     }
 
-    public static int getY_dst() {
+    public  int getY_dst() {
         return _destination.getY();
     }
 
