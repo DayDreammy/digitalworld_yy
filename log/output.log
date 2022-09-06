@@ -6036,3 +6036,247 @@
 19:21:35.562 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(30 , 10) ， destination=(30 , 10)]
 19:21:35.562 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(41 , 31) ， destination=(41 , 31)]
 19:21:35.562 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(5 , 29) ， destination=(5 , 29)]
+20:27:48.876 [main] INFO  e.t.cc.digitalworld.MainApplication - Starting MainApplication using Java 18.0.2.1 on DESKTOP-8Q5E31L with PID 22564 (E:\Zong_C\code\iw-digitalworld-java\digitalworld\avc-digitalworld-main\target\classes started by YY in E:\Zong_C\code\iw-digitalworld-java\digitalworld)
+20:27:48.879 [main] INFO  e.t.cc.digitalworld.MainApplication - No active profile set, falling back to 1 default profile: "default"
+20:27:50.158 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+20:27:50.168 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+20:27:50.169 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+20:27:50.169 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.64]
+20:27:50.278 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+20:27:50.278 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1347 ms
+20:27:50.639 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'roboTaxiController' method 
+edu.tongji.cc.digitalworld.api.RoboTaxiController#getMap(String)
+to {GET [/api/agent]}: There is already 'roboTaxiController' bean method
+edu.tongji.cc.digitalworld.api.RoboTaxiController#find(String) mapped.
+20:27:50.642 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+20:27:50.649 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+20:27:50.666 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'roboTaxiController' method 
+edu.tongji.cc.digitalworld.api.RoboTaxiController#getMap(String)
+to {GET [/api/agent]}: There is already 'roboTaxiController' bean method
+edu.tongji.cc.digitalworld.api.RoboTaxiController#find(String) mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at edu.tongji.cc.digitalworld.MainApplication.main(MainApplication.java:22)
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'roboTaxiController' method 
+edu.tongji.cc.digitalworld.api.RoboTaxiController#getMap(String)
+to {GET [/api/agent]}: There is already 'roboTaxiController' bean method
+edu.tongji.cc.digitalworld.api.RoboTaxiController#find(String) mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.validateMethodMapping(AbstractHandlerMethodMapping.java:669)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:635)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:332)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:420)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:76)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lambda$detectHandlerMethods$2(AbstractHandlerMethodMapping.java:299)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:297)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.processCandidateBean(AbstractHandlerMethodMapping.java:266)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:225)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:213)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 16 common frames omitted
+20:28:03.567 [main] INFO  e.t.cc.digitalworld.MainApplication - Starting MainApplication using Java 18.0.2.1 on DESKTOP-8Q5E31L with PID 22228 (E:\Zong_C\code\iw-digitalworld-java\digitalworld\avc-digitalworld-main\target\classes started by YY in E:\Zong_C\code\iw-digitalworld-java\digitalworld)
+20:28:03.572 [main] INFO  e.t.cc.digitalworld.MainApplication - No active profile set, falling back to 1 default profile: "default"
+20:28:04.527 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+20:28:04.534 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+20:28:04.535 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+20:28:04.535 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.64]
+20:28:04.603 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+20:28:04.603 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 966 ms
+20:28:04.968 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+20:28:04.989 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+20:28:04.997 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(21 , 12) ， destination=(5 , 18)]
+20:28:04.997 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(16 , 7) ， destination=(24 , 31)]
+20:28:04.997 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(5 , 33) ， destination=(48 , 39)]
+20:28:04.999 [main] INFO  e.t.cc.digitalworld.MainApplication - Started MainApplication in 1.803 seconds (JVM running for 2.22)
+20:28:06.001 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(20 , 12) ， destination=(5 , 18)]
+20:28:06.002 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(16 , 8) ， destination=(24 , 31)]
+20:28:06.003 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(5 , 34) ， destination=(48 , 39)]
+20:28:07.011 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(19 , 12) ， destination=(5 , 18)]
+20:28:07.012 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(16 , 9) ， destination=(24 , 31)]
+20:28:07.013 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(5 , 35) ， destination=(48 , 39)]
+20:28:08.008 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(18 , 12) ， destination=(5 , 18)]
+20:28:08.009 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(16 , 10) ， destination=(24 , 31)]
+20:28:08.010 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(5 , 36) ， destination=(48 , 39)]
+20:28:09.003 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(17 , 12) ， destination=(5 , 18)]
+20:28:09.003 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(16 , 11) ， destination=(24 , 31)]
+20:28:09.004 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(5 , 37) ， destination=(48 , 39)]
+20:32:19.248 [main] INFO  e.t.cc.digitalworld.MainApplication - Starting MainApplication using Java 18.0.2.1 on DESKTOP-8Q5E31L with PID 17760 (E:\Zong_C\code\iw-digitalworld-java\digitalworld\avc-digitalworld-main\target\classes started by YY in E:\Zong_C\code\iw-digitalworld-java\digitalworld)
+20:32:19.251 [main] INFO  e.t.cc.digitalworld.MainApplication - No active profile set, falling back to 1 default profile: "default"
+20:32:20.081 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+20:32:20.088 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+20:32:20.088 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+20:32:20.089 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.64]
+20:32:20.151 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+20:32:20.152 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 855 ms
+20:32:20.495 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+20:32:20.511 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+20:32:20.517 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(15 , 13) ， destination=(14 , 31)]
+20:32:20.517 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(5 , 21) ， destination=(34 , 45)]
+20:32:20.518 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(25 , 9) ， destination=(7 , 10)]
+20:32:20.519 [main] INFO  e.t.cc.digitalworld.MainApplication - Started MainApplication in 1.568 seconds (JVM running for 1.943)
+20:32:21.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 13) ， destination=(14 , 31)]
+20:32:21.527 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(6 , 21) ， destination=(34 , 45)]
+20:32:21.528 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(24 , 9) ， destination=(7 , 10)]
+20:32:22.521 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 14) ， destination=(14 , 31)]
+20:32:22.522 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(7 , 21) ， destination=(34 , 45)]
+20:32:22.523 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(23 , 9) ， destination=(7 , 10)]
+20:32:23.529 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 15) ， destination=(14 , 31)]
+20:32:23.529 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 21) ， destination=(34 , 45)]
+20:32:23.529 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(22 , 9) ， destination=(7 , 10)]
+20:32:24.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 16) ， destination=(14 , 31)]
+20:32:24.527 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 22) ， destination=(34 , 45)]
+20:32:24.530 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(21 , 9) ， destination=(7 , 10)]
+20:32:25.527 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 17) ， destination=(14 , 31)]
+20:32:25.528 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 23) ， destination=(34 , 45)]
+20:32:25.529 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(20 , 9) ， destination=(7 , 10)]
+20:32:26.517 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 18) ， destination=(14 , 31)]
+20:32:26.518 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 24) ， destination=(34 , 45)]
+20:32:26.519 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(19 , 9) ， destination=(7 , 10)]
+20:32:27.524 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 19) ， destination=(14 , 31)]
+20:32:27.525 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 25) ， destination=(34 , 45)]
+20:32:27.525 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(18 , 9) ， destination=(7 , 10)]
+20:32:28.525 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 20) ， destination=(14 , 31)]
+20:32:28.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 26) ， destination=(34 , 45)]
+20:32:28.527 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(17 , 9) ， destination=(7 , 10)]
+20:32:29.531 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 21) ， destination=(14 , 31)]
+20:32:29.531 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 27) ， destination=(34 , 45)]
+20:32:29.531 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(16 , 9) ， destination=(7 , 10)]
+20:32:30.529 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 22) ， destination=(14 , 31)]
+20:32:30.530 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 28) ， destination=(34 , 45)]
+20:32:30.530 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(15 , 9) ， destination=(7 , 10)]
+20:32:31.537 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 23) ， destination=(14 , 31)]
+20:32:31.537 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 29) ， destination=(34 , 45)]
+20:32:31.537 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(14 , 9) ， destination=(7 , 10)]
+20:32:32.532 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 24) ， destination=(14 , 31)]
+20:32:32.533 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 30) ， destination=(34 , 45)]
+20:32:32.533 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(13 , 9) ， destination=(7 , 10)]
+20:32:33.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 25) ， destination=(14 , 31)]
+20:32:33.527 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 31) ， destination=(34 , 45)]
+20:32:33.528 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(12 , 9) ， destination=(7 , 10)]
+20:32:34.516 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 26) ， destination=(14 , 31)]
+20:32:34.517 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 32) ， destination=(34 , 45)]
+20:32:34.517 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(11 , 9) ， destination=(7 , 10)]
+20:32:35.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 27) ， destination=(14 , 31)]
+20:32:35.527 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 33) ， destination=(34 , 45)]
+20:32:35.528 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(10 , 9) ， destination=(7 , 10)]
+20:32:35.897 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:32:35.897 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+20:32:35.898 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+20:32:36.528 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 28) ， destination=(14 , 31)]
+20:32:36.528 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 34) ， destination=(34 , 45)]
+20:32:36.528 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(9 , 9) ， destination=(7 , 10)]
+20:32:37.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 29) ， destination=(14 , 31)]
+20:32:37.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 35) ， destination=(34 , 45)]
+20:32:37.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(8 , 9) ， destination=(7 , 10)]
+20:32:38.520 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:32:38.521 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 36) ， destination=(34 , 45)]
+20:32:38.522 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:32:39.520 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:32:39.521 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 37) ， destination=(34 , 45)]
+20:32:39.522 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:32:40.530 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:32:40.530 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 38) ， destination=(34 , 45)]
+20:32:40.531 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:32:41.527 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:32:41.528 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 39) ， destination=(34 , 45)]
+20:32:41.529 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:32:42.520 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:32:42.520 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 40) ， destination=(34 , 45)]
+20:32:42.520 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:32:43.528 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:32:43.528 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 41) ， destination=(34 , 45)]
+20:32:43.528 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:32:44.519 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:32:44.519 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 42) ， destination=(34 , 45)]
+20:32:44.519 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:32:45.530 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:32:45.531 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 43) ， destination=(34 , 45)]
+20:32:45.531 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:32:46.518 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:32:46.519 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 44) ， destination=(34 , 45)]
+20:32:46.519 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:32:47.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:32:47.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(8 , 45) ， destination=(34 , 45)]
+20:32:47.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:32:48.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:32:48.527 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(9 , 45) ， destination=(34 , 45)]
+20:32:48.528 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:32:49.532 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:32:49.532 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(10 , 45) ， destination=(34 , 45)]
+20:32:49.532 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:32:50.524 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:32:50.525 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(11 , 45) ， destination=(34 , 45)]
+20:32:50.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:32:51.518 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:32:51.519 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(12 , 45) ， destination=(34 , 45)]
+20:32:51.519 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:32:52.528 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:32:52.529 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(13 , 45) ， destination=(34 , 45)]
+20:32:52.529 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:32:53.523 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:32:53.524 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(14 , 45) ， destination=(34 , 45)]
+20:32:53.524 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:32:54.520 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:32:54.520 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(15 , 45) ， destination=(34 , 45)]
+20:32:54.520 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:32:55.517 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:32:55.517 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(16 , 45) ， destination=(34 , 45)]
+20:32:55.517 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:32:56.517 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:32:56.517 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(17 , 45) ， destination=(34 , 45)]
+20:32:56.517 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:32:57.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:32:57.527 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(18 , 45) ， destination=(34 , 45)]
+20:32:57.527 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:32:58.521 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:32:58.522 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(19 , 45) ， destination=(34 , 45)]
+20:32:58.522 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:32:59.532 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:32:59.533 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(20 , 45) ， destination=(34 , 45)]
+20:32:59.533 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:33:00.527 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:33:00.527 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(21 , 45) ， destination=(34 , 45)]
+20:33:00.527 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:33:01.518 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:33:01.518 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(22 , 45) ， destination=(34 , 45)]
+20:33:01.518 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:33:02.524 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:33:02.525 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(23 , 45) ， destination=(34 , 45)]
+20:33:02.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:33:03.529 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:33:03.529 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(24 , 45) ， destination=(34 , 45)]
+20:33:03.530 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:33:04.523 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:33:04.523 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(25 , 45) ， destination=(34 , 45)]
+20:33:04.523 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:33:05.517 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:33:05.517 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(26 , 45) ， destination=(34 , 45)]
+20:33:05.517 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:33:06.525 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:33:06.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(27 , 45) ， destination=(34 , 45)]
+20:33:06.526 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]
+20:33:07.519 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 31) ， destination=(14 , 31)]
+20:33:07.519 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(28 , 45) ， destination=(34 , 45)]
+20:33:07.519 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 10) ， destination=(7 , 10)]
+20:33:08.518 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(14 , 30) ， destination=(14 , 31)]
+20:33:08.518 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(29 , 45) ， destination=(34 , 45)]
+20:33:08.518 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(7 , 9) ， destination=(7 , 10)]

@@ -15,7 +15,7 @@ import java.util.List;
  * - First version.
  */
 @RestController
-@RequestMapping(value="/api/agent")
+@RequestMapping(value="/api/world")
 public class RoboTaxiController {
 
     @Resource(name="avc")
@@ -26,21 +26,21 @@ public class RoboTaxiController {
         this.avc = avc;
     }
 
-    @GetMapping("")
+    @GetMapping("/agent")
     public List<Agent> find(@RequestParam(value = "criteria", defaultValue = "") String criteria)
     {
         return avc.agents().find();
     }
 
-    @GetMapping("")
-    public short[][] getMap(@RequestParam(value = "criteria", defaultValue = "") String criteria)
-    {
-        return MapService.getMap();
-    }
-
-    @GetMapping("/{id}")
+    @GetMapping("/agent/{id}")
     public Agent get(@PathVariable(value = "id") Integer id)
     {
         return avc.agents().get(id);
+    }
+
+    @GetMapping("/map")
+    public short[][] getMap(@RequestParam(value = "criteria", defaultValue = "") String criteria)
+    {
+        return MapService.getMap();
     }
 }
