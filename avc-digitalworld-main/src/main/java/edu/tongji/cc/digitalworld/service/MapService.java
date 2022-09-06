@@ -131,6 +131,10 @@ public class MapService {
         cell[x][y] = val;
     }
 
+    public static short getCellValue(int x, int y) {
+        return  cell[x][y] ;
+    }
+
     public static void drawMap() {
         // 调试——将栅格打印出来看看效果
         System.out.println(Arrays.deepToString(cell));
