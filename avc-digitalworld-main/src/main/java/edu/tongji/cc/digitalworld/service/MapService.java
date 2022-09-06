@@ -44,6 +44,11 @@ public class MapService {
         return submap;
     }
 
+    public static short[][] getMap()
+    {
+        return cell;
+    }
+
 
     //随机生成障碍物
     public void randomize(int count) {
@@ -60,8 +65,6 @@ public class MapService {
 
         //栅格障碍物置1
         setObsGride();
-
-
     }
 
     //生成障碍物object

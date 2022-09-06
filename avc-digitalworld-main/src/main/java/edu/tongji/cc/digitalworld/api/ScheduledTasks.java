@@ -2,6 +2,7 @@ package edu.tongji.cc.digitalworld.api;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -43,6 +44,10 @@ public class ScheduledTasks {
             avc.agents().get(i).invovle();
         }
 
-
+        short[][] cell = MapService.getMap();
+        System.out.println(Arrays.deepToString(cell));
+        System.out.println(cell[0][1]);
+        cell[0][1]=5;
+        System.out.println(cell[0][1]);
     }
 }
