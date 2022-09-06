@@ -31,7 +31,7 @@ public class ScheduledTasks {
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    @Scheduled(fixedRate = 100)
+    @Scheduled(fixedRate = 1000)
     public void reportCurrentTime() throws IOException {
 
 
@@ -44,10 +44,10 @@ public class ScheduledTasks {
             avc.agents().get(i).invovle();
         }
 
-        short[][] cell = MapService.getMap();
-        System.out.println(Arrays.deepToString(cell));
-        System.out.println(cell[0][1]);
-        cell[0][1]=5;
-        System.out.println(cell[0][1]);
+//        short[][] cell = MapService.getMap();
+//        System.out.println(Arrays.deepToString(cell));
+//        System.out.println(cell[0][1]);
+//        cell[0][1]=5;
+//        System.out.println(cell[0][1]);
     }
 }
