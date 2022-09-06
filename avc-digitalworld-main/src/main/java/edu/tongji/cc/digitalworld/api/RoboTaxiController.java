@@ -2,6 +2,7 @@ package edu.tongji.cc.digitalworld.api;
 
 import edu.tongji.cc.digitalworld.entity.Agent;
 import edu.tongji.cc.digitalworld.service.AppService;
+import edu.tongji.cc.digitalworld.service.MapService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -29,6 +30,12 @@ public class RoboTaxiController {
     public List<Agent> find(@RequestParam(value = "criteria", defaultValue = "") String criteria)
     {
         return avc.agents().find();
+    }
+
+    @GetMapping("")
+    public short[][] getMap(@RequestParam(value = "criteria", defaultValue = "") String criteria)
+    {
+        return MapService.getMap();
     }
 
     @GetMapping("/{id}")

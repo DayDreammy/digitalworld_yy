@@ -29,6 +29,7 @@ public class MapService {
     //1 障碍物
     //2 起点
     //3 终点
+    //4 路径
     AgentService _agents;
     List<Obstacle> _obslist = new ArrayList<Obstacle>();
 
