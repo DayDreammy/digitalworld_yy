@@ -4,6 +4,8 @@ import edu.tongji.cc.digitalworld.common.Location;
 
 import java.util.*;
 
+import static edu.tongji.cc.digitalworld.service.MapService.setCellValue;
+
 /**
  * A Star Algorithm
  *
@@ -123,10 +125,10 @@ public class AStar {
         int upperRow = row - 1;
         if (upperRow >= 0) {
             if (col - 1 >= 0) {
-//                checkNode(currentNode, col - 1, upperRow, getDiagonalCost()); // Comment this if diagonal movements are not allowed
+                checkNode(currentNode, col - 1, upperRow, getDiagonalCost()); // Comment this if diagonal movements are not allowed
             }
             if (col + 1 < getSearchArea()[0].length) {
-//                checkNode(currentNode, col + 1, upperRow, getDiagonalCost()); // Comment this if diagonal movements are not allowed
+                checkNode(currentNode, col + 1, upperRow, getDiagonalCost()); // Comment this if diagonal movements are not allowed
             }
             checkNode(currentNode, col, upperRow, getHvCost());
         }
@@ -216,6 +218,56 @@ public class AStar {
 
     private void setDiagonalCost(int diagonalCost) {
         this.diagonalCost = diagonalCost;
+    }
+
+    public void findCornerPoint(ArrayList<Node> path){
+        List<Node> list_corner_p1 = new ArrayList<Node>();
+        List<Node> list_corner_p2 = new ArrayList<Node>();
+        Node corner_p1 = new Node(0,0);
+        Node corner_p2 = new Node(0,0);
+
+        boolean p1_status=false;
+        int len=path.size();
+
+        for(int i=0;i<len - 1;i++){
+            Node node = path.get(i);
+            Node next_node = path.get(i+1);
+            //拐点
+            if(  next_node.getRow() != node.getRow()  && next_node.getCol() != node.getCol()){
+                // p1 status为false，说明此时在找p1
+                if( p1_status== false){
+                    corner_p1=node;
+                    p1_status=true;
+                }else {
+                    //如果此时是拐点，且p1为true,在找p1,如果next_node是终点，则将其置为p2
+                    if(next_node.equals(path.get(len-1))){
+                        corner_p2=next_node;
+                        list_corner_p1.add(corner_p1);
+                        list_corner_p2.add(corner_p2);
+                        p1_status=false;//找到p2以后，就重置状态
+                    }
+                }
+            }
+            //不是拐点
+            else{
+                // p1 status为true，说明此时在找p2
+                if( p1_status== true){
+                    corner_p2=node;
+                    list_corner_p1.add(corner_p1);
+                    list_corner_p2.add(corner_p2);
+                    p1_status=false;//找到p2以后，就重置状态
+                }
+            }
+        }
+        //debug
+        System.out.println("list_corner_p1 size : " + list_corner_p1.size() +"  list_corner_p2 size : " + list_corner_p2.size());
+        for(int i=0;i<list_corner_p1.size();i++){
+            System.out.println("list_corner_p1");
+            System.out.println(list_corner_p1.get(i));
+            System.out.println("list_corner_p2");
+            System.out.println(list_corner_p2.get(i));
+        }
+
     }
 }
 
