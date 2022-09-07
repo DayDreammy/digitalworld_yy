@@ -3,15 +3,13 @@ package edu.tongji.cc.digitalworld.api;
 import java.util.concurrent.atomic.AtomicLong;
 
 import edu.tongji.cc.digitalworld.entity.Greeting;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * This class demonstrates how to implement a restful API interface method.
  */
 @RestController
+@CrossOrigin
 @RequestMapping(value="/api/")
 public class GreetingController {
 

@@ -2,10 +2,7 @@ package edu.tongji.cc.digitalworld.api;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -22,6 +19,7 @@ import java.util.Map;
  * - First version.
  */
 @RestController
+@CrossOrigin
 @RequestMapping(value="/api/logstream/")
 public class LogController {
 

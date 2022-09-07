@@ -119,7 +119,8 @@ public class Agent {
         //观察，下一步路怎么走
         int next_direction=getNextDirection();
         //行动，一脚油门+方向盘
-        goNextNode(next_direction);
+        if(next_direction >= 0)
+            goNextNode(next_direction);
 
     }
 
@@ -129,6 +130,7 @@ public class Agent {
             _path.remove(0);
         } else {//已经到终点
             System.out.println("taxi [id : " + getId() + " ] 已到达目的地");
+            return -1;
         }
 
 

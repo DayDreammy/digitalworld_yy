@@ -34,4 +34,8 @@ public class AppService {
         return world.getMapService();
     }
 
+    public WorldService world(){
+        return this.world;
+    }
+
 }

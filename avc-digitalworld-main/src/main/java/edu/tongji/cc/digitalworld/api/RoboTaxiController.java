@@ -3,6 +3,7 @@ package edu.tongji.cc.digitalworld.api;
 import edu.tongji.cc.digitalworld.entity.Agent;
 import edu.tongji.cc.digitalworld.service.AppService;
 import edu.tongji.cc.digitalworld.service.MapService;
+import edu.tongji.cc.digitalworld.service.WorldService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -15,7 +16,9 @@ import java.util.List;
  * - First version.
  */
 @RestController
+@CrossOrigin
 @RequestMapping(value="/api/world")
+//http://localhost:8080/api/world/
 public class RoboTaxiController {
 
     @Resource(name="avc")
@@ -24,6 +27,12 @@ public class RoboTaxiController {
     public RoboTaxiController(AppService avc)
     {
         this.avc = avc;
+    }
+
+    @GetMapping("")
+    public WorldService get(@RequestParam(value = "criteria", defaultValue = "") String criteria)
+    {
+        return avc.world();
     }
 
     @GetMapping("/agent")
