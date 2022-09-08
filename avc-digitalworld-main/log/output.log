@@ -1,0 +1,44 @@
+18:49:51.397 [main] INFO  e.t.cc.digitalworld.MainApplication - Starting MainApplication v0.2.0 using Java 18.0.2.1 on DESKTOP-8Q5E31L with PID 11364 (E:\Zong_C\code\iw-digitalworld-java\digitalworld\avc-digitalworld-main\target\avc-digitalworld-main-0.2.0.jar started by YY in E:\Zong_C\code\iw-digitalworld-java\digitalworld\avc-digitalworld-main)
+18:49:51.401 [main] INFO  e.t.cc.digitalworld.MainApplication - No active profile set, falling back to 1 default profile: "default"
+18:49:52.397 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+18:49:52.407 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+18:49:52.407 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+18:49:52.422 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.64]
+18:49:52.511 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+18:49:52.511 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1058 ms
+18:49:52.955 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+18:49:52.980 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+18:49:52.990 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(48 , 38) ， destination=(46 , 18)] ,direction=0 
+18:49:52.992 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(26 , 13) ， destination=(36 , 29)] ,direction=0 
+18:49:52.992 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(43 , 1) ， destination=(20 , 5)] ,direction=0 
+18:49:52.994 [main] INFO  e.t.cc.digitalworld.MainApplication - Started MainApplication in 1.946 seconds (JVM running for 2.518)
+18:49:54.002 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(47 , 38) ， destination=(46 , 18)] ,direction=0 
+18:49:54.005 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(26 , 14) ， destination=(36 , 29)] ,direction=3 
+18:49:54.006 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(42 , 1) ， destination=(20 , 5)] ,direction=0 
+18:49:55.002 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(46 , 38) ， destination=(46 , 18)] ,direction=0 
+18:49:55.004 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(26 , 15) ， destination=(36 , 29)] ,direction=3 
+18:49:55.005 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(41 , 1) ， destination=(20 , 5)] ,direction=0 
+18:49:56.001 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(46 , 37) ， destination=(46 , 18)] ,direction=2 
+18:49:56.002 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(26 , 16) ， destination=(36 , 29)] ,direction=3 
+18:49:56.003 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(40 , 1) ， destination=(20 , 5)] ,direction=0 
+18:49:56.998 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(46 , 36) ， destination=(46 , 18)] ,direction=2 
+18:49:57.000 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(26 , 17) ， destination=(36 , 29)] ,direction=3 
+18:49:57.001 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(39 , 1) ， destination=(20 , 5)] ,direction=0 
+18:49:57.995 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(46 , 35) ， destination=(46 , 18)] ,direction=2 
+18:49:57.995 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(26 , 18) ， destination=(36 , 29)] ,direction=3 
+18:49:57.995 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(38 , 1) ， destination=(20 , 5)] ,direction=0 
+18:49:58.993 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(46 , 34) ， destination=(46 , 18)] ,direction=2 
+18:49:58.994 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(26 , 19) ， destination=(36 , 29)] ,direction=3 
+18:49:58.995 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(37 , 1) ， destination=(20 , 5)] ,direction=0 
+18:50:00.007 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(46 , 33) ， destination=(46 , 18)] ,direction=2 
+18:50:00.009 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(26 , 20) ， destination=(36 , 29)] ,direction=3 
+18:50:00.010 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(36 , 1) ， destination=(20 , 5)] ,direction=0 
+18:50:01.004 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(46 , 32) ， destination=(46 , 18)] ,direction=2 
+18:50:01.005 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(26 , 21) ， destination=(36 , 29)] ,direction=3 
+18:50:01.005 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(35 , 1) ， destination=(20 , 5)] ,direction=0 
+18:50:02.001 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(46 , 31) ， destination=(46 , 18)] ,direction=2 
+18:50:02.002 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(26 , 22) ， destination=(36 , 29)] ,direction=3 
+18:50:02.003 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(34 , 1) ， destination=(20 , 5)] ,direction=0 
+18:50:03.002 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=0, location=(46 , 30) ， destination=(46 , 18)] ,direction=2 
+18:50:03.003 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=1, location=(26 , 23) ， destination=(36 , 29)] ,direction=3 
+18:50:03.004 [scheduling-1] INFO  e.t.c.d.api.ScheduledTasks - Agent [id=2, location=(33 , 1) ， destination=(20 , 5)] ,direction=0 

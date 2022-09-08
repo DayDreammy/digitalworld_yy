@@ -36,6 +36,13 @@ public class MapService {
     public MapService(AgentService agents) {
         this._agents = agents;
     }
+    public static int getMapWidth(){
+        return MAP_WIDTH;
+    }
+
+    public static int getMapHeight(){
+        return MAP_HEIGHT;
+    }
 
     public Map subMap(Location loc1, Location loc2) {
         int width = Math.abs(loc1.getX() - loc2.getX());

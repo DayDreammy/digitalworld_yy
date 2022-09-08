@@ -44,4 +44,14 @@ public class AgentService {
         return _agentlist.get(id);
     }
 
+    public void add(Agent agent)
+    {
+        _agentlist.add(agent);
+    }
+
+    public void delete(Agent agent)
+    {
+        _agentlist.remove(agent);
+    }
+
 }

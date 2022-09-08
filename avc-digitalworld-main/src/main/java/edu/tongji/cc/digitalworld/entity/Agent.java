@@ -25,12 +25,19 @@ public class Agent {
     private int _direction;//车的朝向
     private int _velocity = 1;//车的速度
     private int _acceleration = 0;//车的加速度
-    //    - 0  北 （朝上）
+//    - 0  北 （朝上）
 //    - 1  南 （朝下）
 //    - 2  西 （朝左）
 //    - 3  东 （朝右）
     private Location _location = new Location();
+
+    private Location _cur_location = new Location();
     private Location _destination = new Location();// taxi's target
+
+    private int _type=0;//车的类型
+    // 0 digital car  数字世界的车
+    // 1 app car 手机app同步的车
+    // 2 sim car matlab的模拟车
 
     private List<Node> _path = new ArrayList<Node>();//taxi's path
 
@@ -70,6 +77,14 @@ public class Agent {
         this._acceleration = acceleration;
     }
 
+    public int getType() {
+        return _type;
+    }
+
+    public void setType(int type) {
+        this._type = type;
+    }
+
     public void setLocation(int type) {
         Random rnd = new Random();
         Location loc;
@@ -85,8 +100,12 @@ public class Agent {
             _destination.assignfrom(loc);//终点
             //MapService.setCellValue(loc.getX(),loc.getY(), (short) 3);//终点
         }
-
     }
+
+    public void setLocation(Location loc) {
+        _location.assignfrom(loc);//给agent赋位置，起点
+    }
+
 
 
     public void turnLeft() {
@@ -113,6 +132,10 @@ public class Agent {
         }
     }
 
+    public void appupdate(){
+        Forward();
+    }
+
     //向前演化一步 观察+动作
     public void involve() {
 //        System.out.println("involve ...");
@@ -123,6 +146,8 @@ public class Agent {
 //            System.out.println("观察 begin");
             int next_direction=getNextDirection();
 //            System.out.println("观察 finished");
+            //保存最近的位置
+            setCurentLocation(getLocation());
             //行动，一脚油门+方向盘
             if(next_direction >= 0)
                 goNextNode(next_direction);
@@ -132,7 +157,7 @@ public class Agent {
                 System.out.println("taxi [id : " + getId() + " ] 已到达目标点");
                 System.out.println(this );
             }else{
-                System.out.println(this + " next_direction : "+next_direction);
+//                System.out.println(this + " next_direction : "+next_direction);
             }
         }
     }
@@ -245,7 +270,7 @@ public class Agent {
                 }
             }
         }
-        System.out.println( "taxi [id : " + getId() + "  loc = ("+loc_x+","+loc_y+")"+"  next = ("+next_x+","+next_y+")"+"   next_direction = "+next_direction);
+//        System.out.println( "taxi [id : " + getId() + "  loc = ("+loc_x+","+loc_y+")"+"  next = ("+next_x+","+next_y+")"+"   next_direction = "+next_direction);
 
         return next_direction;
     }
@@ -321,6 +346,13 @@ public class Agent {
     public Location getLocation() {
         return this._location;
     }
+    public Location getCurentLocation() {
+        return this._cur_location;
+    }
+    public void setCurentLocation(Location loc) {
+        _cur_location.assignfrom(loc);//给agent赋位置，起点
+    }
+
 
     @Override
     public String toString() {
