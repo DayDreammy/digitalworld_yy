@@ -58,6 +58,7 @@ public class AppService {
     }
 
     public void evolve(){
+        System.out.println("evolve ...");
         int agent_num=agents().find().size();
 //        log.info("time : {}", dateFormat.format(new Date()));
 
