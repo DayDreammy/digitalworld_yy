@@ -2,12 +2,9 @@ package edu.tongji.cc.digitalworld.api;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
 
 
 import edu.tongji.cc.digitalworld.service.AppService;
-import edu.tongji.cc.digitalworld.service.MapService;
 import edu.tongji.cc.digitalworld.service.WorldService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,17 +34,13 @@ public class ScheduledTasks {
 
 //        log.info("time : {}", dateFormat.format(new Date()));
         for (int i = 0; i < WorldService.getAgentNumber(); i++) {
-            log.info(avc.agents().get(i).toString());
+//            log.info(avc.agents().get(i).toString());
         }
 
         for (int i = 0; i < WorldService.getAgentNumber(); i++) {
-            avc.agents().get(i).invovle();
+            avc.agents().get(i).involve();
         }
 
-//        short[][] cell = MapService.getMap();
-//        System.out.println(Arrays.deepToString(cell));
-//        System.out.println(cell[0][1]);
-//        cell[0][1]=5;
-//        System.out.println(cell[0][1]);
+
     }
 }

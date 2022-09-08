@@ -4,7 +4,6 @@ import edu.tongji.cc.digitalworld.Astar.AStar;
 import edu.tongji.cc.digitalworld.Astar.Node;
 import edu.tongji.cc.digitalworld.common.Location;
 import edu.tongji.cc.digitalworld.service.MapService;
-import edu.tongji.cc.digitalworld.service.WorldService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,24 +114,47 @@ public class Agent {
     }
 
     //向前演化一步 观察+动作
-    public void invovle() {
+    public void involve() {
+//        System.out.println("involve ...");
         //观察，下一步路怎么走
-        int next_direction=getNextDirection();
-        //行动，一脚油门+方向盘
-        if(next_direction >= 0)
-            goNextNode(next_direction);
+        boolean finished_path=checkPath();
 
+        if(!finished_path ){
+//            System.out.println("观察 begin");
+            int next_direction=getNextDirection();
+//            System.out.println("观察 finished");
+            //行动，一脚油门+方向盘
+            if(next_direction >= 0)
+                goNextNode(next_direction);
+//            System.out.println("动作 finished");
+
+            if( getX() == getX_dst()  &&  getY() == getY_dst()){
+                System.out.println("taxi [id : " + getId() + " ] 已到达目标点");
+                System.out.println(this );
+            }else{
+                System.out.println(this + " next_direction : "+next_direction);
+            }
+        }
+    }
+
+    //检查时候是否走到路径最后一个点
+    public boolean checkPath(){
+
+        if (_path.size() > 1) {
+            //还没到终点,删去path的第一个节点
+            _path.remove(0);
+            return false;
+        }
+        else{
+            //已到达路径上最后一个点
+            System.out.println("taxi [id : " + getId() + " ] 已到达路径上最后一个点");
+            return true;
+        }
     }
 
     public int getNextDirection(){
-        //删去path的第一个节点
-        if (_path.size() > 1) {//还没到终点
-            _path.remove(0);
-        } else {//已经到终点
-            System.out.println("taxi [id : " + getId() + " ] 已到达目的地");
-            return -1;
-        }
 
+        System.out.println("getNextDirection() running");
 
         //判断path和自己位置的关系
         int loc_x = _location.getX();
@@ -140,6 +162,7 @@ public class Agent {
 
         int next_x = _path.get(0).getRow();
         int next_y = _path.get(0).getCol();
+
 
         int next_direction = 0; //下一个点的方向
 
@@ -222,6 +245,8 @@ public class Agent {
                 }
             }
         }
+        System.out.println( "taxi [id : " + getId() + "  loc = ("+loc_x+","+loc_y+")"+"  next = ("+next_x+","+next_y+")"+"   next_direction = "+next_direction);
+
         return next_direction;
     }
     public void goNextNode(int next_direction){
@@ -244,6 +269,8 @@ public class Agent {
                 Forward();
                 break;
         }
+
+
     }
 
     public void Forward() {//地图坐标原点在左上角
@@ -298,8 +325,8 @@ public class Agent {
     @Override
     public String toString() {
         return String.format(
-                "Agent [id=%d, location=(%d , %d) ， destination=(%d , %d)]",
-                getId(), getX(), getY(), getX_dst(), getY_dst());
+                "Agent [id=%d, location=(%d , %d) ， destination=(%d , %d)] ,direction=%d ",
+                getId(), getX(), getY(), getX_dst(), getY_dst(),getDirection());
     }
 
     public int getX() {

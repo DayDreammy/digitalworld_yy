@@ -73,6 +73,13 @@ public class Location {
         }
     }
 
+    @Override
+    public String toString() {
+        return String.format(
+                "location=(%d , %d) ",
+                getX(), getY());
+    }
+
 
 
 
