@@ -48,7 +48,18 @@ public class MapService {
         int width = Math.abs(loc1.getX() - loc2.getX());
         int height = Math.abs(loc1.getY() - loc2.getY());
         Map submap = new Map(width, height);
-        // TODO
+
+        int min_x=Math.min(loc1.getX() ,loc2.getX());
+        int max_x=Math.max(loc1.getX() ,loc2.getX());
+        int min_y=Math.min(loc1.getY() ,loc2.getY());
+        int max_y=Math.max(loc1.getY() ,loc2.getY());
+
+        for(int i=0;i<width;i++){
+            for(int j=0;j<height;j++){
+                short value=getCellValue(min_x+i,min_y+j);
+                submap.setCell(i,j,value);
+            }
+        }
         return submap;
     }
 

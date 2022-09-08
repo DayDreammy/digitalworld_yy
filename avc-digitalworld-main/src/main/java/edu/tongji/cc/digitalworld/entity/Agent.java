@@ -144,7 +144,7 @@ public class Agent {
 
         if(!finished_path ){
 //            System.out.println("观察 begin");
-            int next_direction=getNextDirection();
+            int next_direction= watchNextDirection();
 //            System.out.println("观察 finished");
             //保存最近的位置
             setCurentLocation(getLocation());
@@ -177,7 +177,7 @@ public class Agent {
         }
     }
 
-    public int getNextDirection(){
+    public int watchNextDirection(){
 
         System.out.println("getNextDirection() running");
 
@@ -310,6 +310,19 @@ public class Agent {
         } else if (_direction == 3) { // - 3  东 （朝右）
             _location.setY(getY() + _velocity);
         }
+
+        // 合理性检查
+        int max=MapService.getMapHeight()-1;
+        if( _location.getX() < 0 ){
+            _location.setX(max);
+        }else if( _location.getY() <0){
+            _location.setY(max);
+        }else if( _location.getX() > max){
+            _location.setX(0);
+        }else if(  _location.getY() >max){
+            _location.setY(0);
+        }
+
     }
 
     public void Astar() {
@@ -357,7 +370,7 @@ public class Agent {
     @Override
     public String toString() {
         return String.format(
-                "Agent [id=%d, location=(%d , %d) ， destination=(%d , %d)] ,direction=%d ",
+                "Agent [id=%d, location=(%d , %d) ， destination=(%d , %d) , direction=%d ] ",
                 getId(), getX(), getY(), getX_dst(), getY_dst(),getDirection());
     }
 

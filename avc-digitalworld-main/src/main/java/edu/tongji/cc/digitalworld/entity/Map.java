@@ -21,4 +21,12 @@ public class Map {
         return cell;
     }
 
+    public void setCell(int x,int y,short value){
+        cell[x][y]=value;
+    }
+
+    public short[][] getMap(){
+        return cell;
+    }
+
 }

@@ -19,6 +19,7 @@ public class ScheduledTasks {
 
     private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
 
+
     @Resource(name = "avc")
     final AppService avc;
 
@@ -32,20 +33,32 @@ public class ScheduledTasks {
     @Scheduled(fixedRate = 1000)
     public void reportCurrentTime() throws IOException {
 
-        int agent_num=avc.agents().find().size();
+        int world_type=avc.Status();
+        if(world_type == 1){//世界状态为运行中
+
+            avc.tictoc();//滴答滴答
+
+            int agent_num=avc.agents().find().size();
 //        log.info("time : {}", dateFormat.format(new Date()));
-        for (int i = 0; i < agent_num; i++) {
-            log.info(avc.agents().get(i).toString());
+            for (int i = 0; i < agent_num; i++) {
+                log.info(avc.agents().get(i).toString());
+            }
+
+            for (int i = 0; i < agent_num; i++) {
+                Agent agent=avc.agents().get(i);
+                if(agent.getType() == 0){//digital car 需要involve
+                    agent.involve();
+                }else if(agent.getType() == 1){//app car 需要update
+                    agent.appupdate();
+                }
+            }
+        }else if(world_type == 0){
+            log.info("The World did not start");
+        }else if(world_type == 2){
+            log.info("The world is suspended");
         }
 
-        for (int i = 0; i < agent_num; i++) {
-            Agent agent=avc.agents().get(i);
-            if(agent.getType() == 0){//digital car 需要involve
-                agent.involve();
-            }else if(agent.getType() == 1){//app car 需要update
-                agent.appupdate();
-            }
-        }
+
 
 
     }
