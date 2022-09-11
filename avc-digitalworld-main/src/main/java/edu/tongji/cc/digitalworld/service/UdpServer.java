@@ -1,25 +1,21 @@
-package edu.tongji.cc.digitalworld.udp;
+package edu.tongji.cc.digitalworld.service;
 
 import edu.tongji.cc.digitalworld.common.Location;
 import edu.tongji.cc.digitalworld.entity.Agent;
 import edu.tongji.cc.digitalworld.service.AgentService;
-import edu.tongji.cc.digitalworld.service.AppService;
 import edu.tongji.cc.digitalworld.service.MapService;
 
-import javax.annotation.Resource;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.nio.charset.StandardCharsets;
 
-import static edu.tongji.cc.digitalworld.service.MapService.getMapWidth;
-
-public class Server extends Thread{
+public class UdpServer extends Thread{
 
     private AgentService _agents;
 
-    public Server(AgentService agent) {
+    public UdpServer(AgentService agent) {
         this._agents = agent;
     }
     @Override

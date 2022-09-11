@@ -1,11 +1,8 @@
 package edu.tongji.cc.digitalworld;
 
-import edu.tongji.cc.digitalworld.api.ScheduledTasks;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
-
-import java.io.UnsupportedEncodingException;
 
 /**
  * Main Application class.

@@ -67,7 +67,7 @@ public class AppService {
             if(agent.getType() == 0){//digital car 需要involve
                 agent.involve();
             }else if(agent.getType() == 1){//app car 需要update
-                agent.appupdate();
+                agent.appUpdate();
             }
         }
     }

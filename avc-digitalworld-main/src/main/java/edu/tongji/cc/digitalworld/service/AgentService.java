@@ -1,8 +1,6 @@
 package edu.tongji.cc.digitalworld.service;
 
-import edu.tongji.cc.digitalworld.common.Location;
 import edu.tongji.cc.digitalworld.entity.Agent;
-import edu.tongji.cc.digitalworld.entity.Map;
 import edu.tongji.cc.digitalworld.entity.RoboTaxi;
 
 import java.util.ArrayList;
@@ -20,11 +18,9 @@ public class AgentService {
 
     List<Agent> _agentlist = new ArrayList<Agent>();
 
-    public void randomize(int count)
-    {
+    public void randomize(int count) {
         Random rnd = new Random();
-        for (int i=0; i<count; i++)
-        {
+        for (int i = 0; i < count; i++) {
             Agent agent = new RoboTaxi();
             agent.setId(i);
             agent.setLocation(2);//设置起点
@@ -34,23 +30,19 @@ public class AgentService {
         }
     }
 
-    public List<Agent> find()
-    {
+    public List<Agent> find() {
         return _agentlist;
     }
 
-    public Agent get(int id)
-    {
+    public Agent get(int id) {
         return _agentlist.get(id);
     }
 
-    public void add(Agent agent)
-    {
+    public void add(Agent agent) {
         _agentlist.add(agent);
     }
 
-    public void delete(Agent agent)
-    {
+    public void delete(Agent agent) {
         _agentlist.remove(agent);
     }
 

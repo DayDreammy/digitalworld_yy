@@ -36,11 +36,12 @@ public class MapService {
     public MapService(AgentService agents) {
         this._agents = agents;
     }
-    public static int getMapWidth(){
+
+    public static int getMapWidth() {
         return MAP_WIDTH;
     }
 
-    public static int getMapHeight(){
+    public static int getMapHeight() {
         return MAP_HEIGHT;
     }
 
@@ -49,22 +50,21 @@ public class MapService {
         int height = Math.abs(loc1.getY() - loc2.getY());
         Map submap = new Map(width, height);
 
-        int min_x=Math.min(loc1.getX() ,loc2.getX());
-        int max_x=Math.max(loc1.getX() ,loc2.getX());
-        int min_y=Math.min(loc1.getY() ,loc2.getY());
-        int max_y=Math.max(loc1.getY() ,loc2.getY());
+        int min_x = Math.min(loc1.getX(), loc2.getX());
+        int max_x = Math.max(loc1.getX(), loc2.getX());
+        int min_y = Math.min(loc1.getY(), loc2.getY());
+        int max_y = Math.max(loc1.getY(), loc2.getY());
 
-        for(int i=0;i<width;i++){
-            for(int j=0;j<height;j++){
-                short value=getCellValue(min_x+i,min_y+j);
-                submap.setCell(i,j,value);
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                short value = getCellValue(min_x + i, min_y + j);
+                submap.setCell(i, j, value);
             }
         }
         return submap;
     }
 
-    public static short[][] getMap()
-    {
+    public static short[][] getMap() {
         return cell;
     }
 
@@ -81,7 +81,6 @@ public class MapService {
         for (int i = 0; i < WorldService.getAgentNumber(); i++) {
             System.out.println(_obslist.get(i).toString());
         }
-
         //栅格障碍物置1
         setObsGride();
     }
@@ -154,7 +153,7 @@ public class MapService {
     }
 
     public static short getCellValue(int x, int y) {
-        return  cell[x][y] ;
+        return cell[x][y];
     }
 
     public static void drawMap() {
@@ -170,12 +169,10 @@ public class MapService {
 
             for (int x = 0; x < MAP_HEIGHT; x++) {
                 for (int y = 0; y < MAP_WIDTH; y++) {
-                    if (cell[x][y] != 0){
+                    if (cell[x][y] != 0) {
                         os.append((char) (cell[x][y] + '0'));
                         System.out.print((char) (cell[x][y] + '0'));
-                    }
-
-                    else{
+                    } else {
                         os.append(' ');
                         System.out.print(' ');
                     }
@@ -189,7 +186,6 @@ public class MapService {
             System.out.print("Exception");
         }
     }
-
 
 
 }

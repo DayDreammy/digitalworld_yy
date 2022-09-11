@@ -1,12 +1,10 @@
-package edu.tongji.cc.digitalworld.api;
+package edu.tongji.cc.digitalworld.service;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
 
 
 import edu.tongji.cc.digitalworld.entity.Agent;
-import edu.tongji.cc.digitalworld.service.AppService;
-import edu.tongji.cc.digitalworld.service.WorldService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -49,7 +47,7 @@ public class ScheduledTasks {
                 if(agent.getType() == 0){//digital car 需要involve
                     agent.involve();
                 }else if(agent.getType() == 1){//app car 需要update
-                    agent.appupdate();
+                    agent.appUpdate();
                 }
             }
         }else if(world_type == 0){

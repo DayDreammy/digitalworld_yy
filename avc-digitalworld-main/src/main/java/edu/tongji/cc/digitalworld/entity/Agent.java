@@ -132,7 +132,7 @@ public class Agent {
         }
     }
 
-    public void appupdate(){
+    public void appUpdate(){
         Forward();
     }
 
