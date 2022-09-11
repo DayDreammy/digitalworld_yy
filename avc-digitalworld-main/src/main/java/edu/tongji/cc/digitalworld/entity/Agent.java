@@ -370,8 +370,8 @@ public class Agent {
     @Override
     public String toString() {
         return String.format(
-                "Agent [id=%d, location=(%d , %d) ， destination=(%d , %d) , direction=%d ] ",
-                getId(), getX(), getY(), getX_dst(), getY_dst(),getDirection());
+                "Agent [id=%d, type=%d, location=(%d , %d) ， destination=(%d , %d) , direction=%d ] ",
+                getId(), getType(),getX(), getY(), getX_dst(), getY_dst(),getDirection());
     }
 
     public int getX() {

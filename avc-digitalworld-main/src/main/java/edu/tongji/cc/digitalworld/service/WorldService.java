@@ -1,5 +1,8 @@
 package edu.tongji.cc.digitalworld.service;
 
+import edu.tongji.cc.digitalworld.common.Location;
+import edu.tongji.cc.digitalworld.entity.Agent;
+
 /**
  * World service, which is essentially the simulation engine.
  * @author ZhangWei(Dept. of Control, TongJi University)
@@ -22,6 +25,12 @@ public class WorldService {
         MapService.drawMap();//画出地图，包括障碍物，起点、终点和路径
         Thread udp=new UdpServer(_agents);
         udp.start();//启动udp监听
+
+        Agent simcar = new Agent();
+        simcar.setId(_agents.find().size());
+        simcar.setType(2);
+        simcar.setLocation(new Location(20,20));
+        _agents.add(simcar);
     }
 
     public AgentService getAgentService()
